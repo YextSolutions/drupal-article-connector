@@ -1,8 +1,8 @@
 {
-  "$id": "acquiaDrupalArticle_article",
+  "$id": "drupalArticle_article",
   "$schema": "https://schema.yext.com/config/km/entity-type/v1",
   "description": "",
-  "displayName": "Acquia Article",
+  "displayName": "Drupal Article",
   "enabled": true,
   "field": [
     {

@@ -1,13 +1,13 @@
 {
-  "$id": "acquiaDrupalArticle_articleconnector",
+  "$id": "drupalArticle_articleconnector",
   "$schema": "https://schema.yext.com/config/km/connector/v1",
-  "displayName": "Acquia Article Connector",
-  "entityType": "acquiaDrupalArticle_article",
+  "displayName": "Drupal Article Connector",
+  "entityType": "drupalArticle_article",
   "source": {
     "sourceConfig": {
       "apiPullConfig": {
         "requestType": "GET",
-        "url": "${{acquiaDomain}}/jsonapi/node/article",
+        "url": "${{drupalDomain}}/jsonapi/node/article",
         "paginationControl": {
           "cursorPagination": {
             "cursor": "links.next",
@@ -61,7 +61,7 @@
             "Landing Page URL"
           ]
         },
-        "plugin": "acquiaDrupalArticle_constructUrl",
+        "plugin": "drupalArticle_constructUrl",
         "function": "constructUrl"
       }
     }
