@@ -1,5 +1,4 @@
 ##### drupal-article-connector
-Drupal Article Connector
 
 # Product Description & Purpose
 
