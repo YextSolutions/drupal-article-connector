@@ -18,9 +18,9 @@ This app creates a custom Drupal Article entity type and utilizes built-in field
 
 *Note: if your connector does not run or returns an error, you might have to add authentication!*
 
-If you are an existing Yext customer, you can install the WordPress Post Connector here <https://www.yext.com/s/me/apps/61171>
+If you are an existing Yext customer, you can install the Drupal Article Connector here <https://www.yext.com/s/me/apps/61171>
 
-If you are currently using a Yext sandbox account, you can install the WordPress Post Connector here <https://sandbox.yext.com/s/me/apps/130388>.
+If you are currently using a Yext sandbox account, you can install the Drupal Article Connector here <https://sandbox.yext.com/s/me/apps/130388>.
 
 If you are not an existing customer, but interested in learning more, try out a free trial here for a production account, or sign up for Hitchhikers and get started with a sandbox account, here <https://hitchhikers.yext.com/>. 
 
