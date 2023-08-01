@@ -1,10 +1,10 @@
 {
-  "$id": "drupalArticle_article",
-  "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
-  "name": "Drupal Article",
-  "entityType": "drupalArticle_article",
-  "fields": [
-    "landingPageUrl",
-    "body"
-  ]
+    "$id": "drupalArticle_article",
+    "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
+    "name": "Drupal Article",
+    "entityType": "drupalArticle_article",
+    "fields": [
+        "landingPageUrl",
+        "bodyV2"
+    ]
 }

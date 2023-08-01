@@ -1,83 +1,93 @@
 {
-  "$id": "drupalArticle_articleconnector",
-  "$schema": "https://schema.yext.com/config/km/connector/v2",
-  "displayName": "Drupal Article Connector",
-  "entityType": "drupalArticle_article",
-  "source": {
-    "sourceConfig": {
-      "nativeSourceConfig": {
-        "source": "drupal",
-        "operation": "fetchArticleContent",
-        "inputs": {
-          "drupalDomain": "${{drupalDomain}}"
-        }
-      }
-    },
-    "selectors": [
-      {
-        "type": "JSON",
-        "header": "ID",
-        "path": "id"
-      },
-      {
-        "type": "JSON",
-        "header": "Name",
-        "path": "attributes.title"
-      },
-      {
-        "type": "JSON",
-        "header": "Body",
-        "path": "attributes.body.value"
-      },
-      {
-        "type": "JSON",
-        "header": "Landing Page URL",
-        "path": "attributes.drupal_internal__nid"
-      }
-    ]
-  },
-  "transforms": [
-    {
-      "function": {
-        "inputHeaders": {
-          "headers": [
-            "Landing Page URL"
-          ]
+    "$id": "drupalArticle_articleconnector",
+    "$schema": "https://schema.yext.com/config/km/connector/v4",
+    "displayName": "Drupal Article Connector",
+    "entityTypes": [
+        "drupalArticle_article"
+    ],
+    "source": {
+        "sourceConfig": {
+            "nativeSourceConfig": {
+                "source": "drupal",
+                "operation": "fetchArticleContent",
+                "inputs": {
+                    "drupalDomain": "${{drupalDomain}}"
+                }
+            }
         },
-        "plugin": "drupalArticle_constructUrl",
-        "function": "constructUrl"
-      }
+        "selectors": [
+            {
+                "type": "JSON",
+                "header": "ID",
+                "path": "id"
+            },
+            {
+                "type": "JSON",
+                "header": "Name",
+                "path": "attributes.title"
+            },
+            {
+                "type": "JSON",
+                "header": "Body",
+                "path": "attributes.body.value"
+            },
+            {
+                "type": "JSON",
+                "header": "Landing Page URL",
+                "path": "attributes.drupal_internal__nid"
+            }
+        ]
+    },
+    "transforms": [
+        {
+            "function": {
+                "inputHeaders": {
+                    "headers": [
+                        "Landing Page URL"
+                    ]
+                },
+                "plugin": "drupalArticle_constructUrl",
+                "function": "constructUrl"
+            }
+        }
+    ],
+    "mappings": [
+        {
+            "field": "entityId",
+            "header": "ID",
+            "subfieldPath": []
+        },
+        {
+            "field": "bodyV2",
+            "header": "Body",
+            "subfieldPath": [
+                {
+                    "name": "markdown"
+                }
+            ]
+        },
+        {
+            "field": "name",
+            "header": "Name",
+            "subfieldPath": []
+        },
+        {
+            "field": "landingPageUrl",
+            "header": "Landing Page URL",
+            "subfieldPath": []
+        }
+    ],
+    "scheduleConfig": {
+        "customSchedule": {
+            "timeZone": "America/New_York",
+            "startDate": "2021-06-23",
+            "startTime": "03:00",
+            "frequencyType": "DAILY"
+        },
+        "runMode": "COMPREHENSIVE"
+    },
+    "comprehensiveModeConfig": {
+        "comprehensiveSet": "ENTITIES_CREATED_BY_THIS_CONNECTOR",
+        "actionOnMissingEntities": "DELETE"
     }
-  ],
-  "mappings": [
-    {
-      "field": "entityId",
-      "header": "ID",
-      "subfieldPath": []
-    },
-    {
-      "field": "body",
-      "header": "Body",
-      "subfieldPath": []
-    },
-    {
-      "field": "name",
-      "header": "Name",
-      "subfieldPath": []
-    },
-    {
-      "field": "landingPageUrl",
-      "header": "Landing Page URL",
-      "subfieldPath": []
-    }
-  ],
-  "scheduleConfig": {
-    "customSchedule": {
-      "timeZone": "America/New_York",
-      "startDate": "2021-06-23",
-      "startTime": "03:00",
-      "frequencyType": "DAILY"
-    },
-    "runMode": "COMPREHENSIVE"
-  }
 }
